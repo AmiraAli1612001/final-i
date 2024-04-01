@@ -4,27 +4,29 @@ import Carousel from "react-multi-carousel";
 import "react-multi-carousel/lib/styles.css";
 import nawal from "../images/naeal.jpg";
 import ahmed from "../images/ahmed.jpg";
-import amer from "../images/ahmed.jpg";
+import { useTranslation } from "react-i18next";
 
 const Owl = () => {
+  const { t } = useTranslation();
+
   let person = [
     {
       img: ahmed,
-      name: "Ameer Nabeel",
-      job: "Graphics Designer",
-      text: " I liked the speed of the GRE company to accomplish my personal website with the features that I requested, with completeprofessionalism, thank you from the heart.",
+      name: t("amer-name"),
+      job: t("amer-job"),
+      text: t("amer-p"),
     },
     {
       img: ahmed,
-      name: "Ahmed Allan",
-      job: "صاحب موقع العاب",
-      text: " One of the best companies that I have dealt with Punctuality, high experience, and high quality All my needs were met excellently and beyond expectation I wish you all the best of luck.",
+      name: t("ahmed-title"),
+      job: t("ahmed-job"),
+      text: t("ahmed-p"),
     },
     {
       img: nawal,
-      name: "Nawal Houidegl",
-      job: "Mgr. of Shaofni",
-      text: "Very great web design company and their experience is very high.",
+      name: t("nwl-name"),
+      job: t("nwl-job"),
+      text: t("nwl-p"),
     },
   ];
   const responsive = {
@@ -34,11 +36,11 @@ const Owl = () => {
       items: 3,
     },
     desktop: {
-      breakpoint: { max: 3000, min: 1024 },
-      items: 2,
+      breakpoint: { max: 2500, min: 1024 },
+      items: 3,
     },
     tablet: {
-      breakpoint: { max: 1024, min: 350 },
+      breakpoint: { max: 994, min: 350 },
       items: 1,
     },
     mobile: {
@@ -48,11 +50,8 @@ const Owl = () => {
   };
   return (
     <Box className="owl-parent">
-      <h2 className="h">What Our Customers Say</h2>
-      <p className="p">
-        This is what some of our customers who have placed their full trust in
-        our company, and you will be!
-      </p>
+      <h2 className="h">{t("owl-title")}</h2>
+      <p className="p">{t("owl-p")}</p>
 
       <Carousel
         className="owl"

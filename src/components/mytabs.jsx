@@ -3,60 +3,63 @@ import React, { useState } from "react";
 import AppBar from "@mui/material/AppBar";
 import Tabs from "@mui/material/Tabs";
 import Tab from "@mui/material/Tab";
-import Typography from "@mui/material/Typography";
+import { useTranslation } from "react-i18next";
+
 const Mytabs = () => {
+  const { t } = useTranslation();
+
   let tab1 = [
     {
-      title: "Positive SSL",
+      title: t("plan-box-1-title"),
       price: "$15.99.",
-      p: "Suitable for personal websites, blogs, and simple websites.",
+      p: t("plan-box-1-p"),
     },
     {
-      title: "Instant SSL",
+      title: t("plan-box-2-title"),
       price: "$27.99.",
-      p: "Suitable for commercial sites that requires users' data.",
+      p: t("plan-box-2-p"),
     },
     {
-      title: "Essential SSL",
+      title: t("plan-box-3-title"),
       price: "$34.99.",
-      p: "Suitable for personal sites, blogs and non-commercial sites",
+      p: t("plan-box-3-p"),
     },
     {
-      title: "Positive SSL Multi-domain",
+      title: t("plan-box-4-title"),
       price: "$39.99.",
-      p: "Suitable for multi-domain business websites. (Includes three domains).",
+      p: t("plan-box-4-p"),
     },
     {
-      title: "EV SSL",
+      title: t("plan-box-5-title"),
       price: "$99.99.",
-      p: "Suitable for large projects, stores and company websites.",
+      p: t("plan-box-5-p"),
     },
   ];
   let tab2 = [
     {
-      title: "Positive SSL",
+      title: t("plan-box-1-title"),
       price: "$14.99.",
-      p: "Suitable for personal websites, blogs, and simple websites.",
+      p: t("plan-box-1-p"),
     },
     {
-      title: "Instant SSL",
+      title: t("plan-box-2-title"),
       price: "$25.99.",
-      p: "Suitable for commercial sites that requires users' data.",
+      p: t("plan-box-2-p"),
     },
     {
-      title: "Essential SSL",
+      title: t("plan-box-3-title"),
       price: "$32.99.",
-      p: "Suitable for personal sites, blogs and non-commercial sites",
+      p: t("plan-box-3-p"),
     },
     {
-      title: "Positive SSL Multi-domain",
+      title: t("plan-box-4-title"),
       price: "$38.99.",
-      p: "Suitable for multi-domain business websites. (Includes three domains).",
+      p: t("plan-box-4-p"),
     },
     {
-      title: "EV SSL",
+      title: t("plan-box-5-title"),
       price: "$97.99.",
-      p: "Suitable for large projects, stores and company websites.",
+      p: t("plan-box-5-p"),
     },
   ];
   const [value, setValue] = useState(0);
@@ -71,20 +74,22 @@ const Mytabs = () => {
         position="static"
         sx={{
           margin: "30px auto",
-          maxWidth :"180px" , display :"flex" , justifyContent :"center", alignItems :"center",
+          maxWidth: "180px",
+          display: "flex",
+          justifyContent: "center",
+          alignItems: "center",
           backgroundColor: "white",
         }}
       >
-        <Tabs value={value} onChange={handleTabs} >
-          <Tab label="Year 1"/>
-          <Tab label="Year 2"  />
+        <Tabs value={value} onChange={handleTabs}>
+          <Tab label={t("year-1")} />
+          <Tab label={t("year-2")} />
         </Tabs>
       </AppBar>
       <TabPanel value={value} index={0}>
         <Grid
           container
           sx={{
-            width: { xs: "90vw", md: "70vw" },
             margin: "auto",
             display: "flex",
             flexWrap: "wrap",

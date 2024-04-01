@@ -3,6 +3,8 @@ import React, { useState } from "react";
 import { Link } from "react-router-dom";
 import LanguageIcon from "@mui/icons-material/Language";
 import { Close } from "@mui/icons-material";
+import i18n from "../i18n";
+
 const Drawer = (props) => {
   function toTops() {
     window.scrollTo({
@@ -21,7 +23,14 @@ const Drawer = (props) => {
   let [menu, setMenu] = useState(false);
 
   return (
-    <Box className="drawer" sx={{transition :"1s", height: props.drawer ? "100vh" : "0px" , overflow :"hidden" }}>
+    <Box
+      className="drawer"
+      sx={{
+        transition: "1s",
+        height: props.drawer ? "100vh" : "0px",
+        overflow: "hidden",
+      }}
+    >
       <Grid container className="items">
         <Grid
           item
@@ -33,8 +42,22 @@ const Drawer = (props) => {
         >
           <LanguageIcon />
           <Box className="menu" sx={{ display: menu ? "block" : "none" }}>
-            <p>EN</p>
-            <p>AR</p>
+            <p
+              onClick={() => {
+                i18n.changeLanguage("en");
+                document.body.style.direction = "ltr";
+              }}
+            >
+              EN
+            </p>
+            <p
+              onClick={() => {
+                i18n.changeLanguage("ar");
+                document.body.style.direction = "rtl";
+              }}
+            >
+              AR
+            </p>
           </Box>
         </Grid>
         <Grid
@@ -52,10 +75,15 @@ const Drawer = (props) => {
           {headerLinks.map((item, index) => {
             return (
               <Box key={index}>
-                <Link to={item.path} key={index} className="not-animate" onClick={() => {
-                  toTops()
-                  props.setDrawer(false)
-                }}>
+                <Link
+                  to={item.path}
+                  key={index}
+                  className="not-animate"
+                  onClick={() => {
+                    toTops();
+                    props.setDrawer(false);
+                  }}
+                >
                   {item.text}
                 </Link>
               </Box>

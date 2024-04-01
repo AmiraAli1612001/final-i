@@ -1,13 +1,26 @@
-import { Box, CardMedia, Grid } from "@mui/material";
+import { Box, Grid } from "@mui/material";
 import React from "react";
 import Header from "./Header";
-import { Link, useNavigate } from "react-router-dom";
-import ArrowForwardIosIcon from "@mui/icons-material/ArrowForwardIos";
 import { HashLink } from "react-router-hash-link";
-import { Translate } from "@mui/icons-material";
+import Particles from "react-particles";
+
+import { useCallback } from "react";
+import { loadSlim } from "tsparticles-slim";
+import { useNavigate } from "react-router-dom";
 
 const Top = (props) => {
-  let navigate = useNavigate()
+  let navigate = useNavigate();
+
+  const particlesInit = useCallback(async (engine) => {
+    console.log(engine);
+
+    await loadSlim(engine);
+  }, []);
+
+  const particlesLoaded = useCallback(async (container) => {
+    await console.log(container);
+  }, []);
+
   return (
     <Box>
       <Header />
@@ -16,31 +29,112 @@ const Top = (props) => {
         <Grid
           container
           className="home-container"
-          sx={{width:{xs :"90vw" , md :"80vw"}, textAlign :{xs :"center" , md :"start"}}}
+          sx={{
+            textAlign: { xs: "center", md: "start", position: "relative" },
+          }}
         >
+          <Particles
+            id="tsparticles"
+            init={particlesInit}
+            loaded={particlesLoaded}
+            options={{
+              fpsLimit: 120,
+
+              interactivity: {
+                events: {
+                  onClick: {
+                    enable: true,
+                    mode: "push",
+                  },
+                  onHover: {
+                    enable: true,
+                    mode: "repulse",
+                  },
+                  resize: true,
+                },
+                modes: {
+                  push: {
+                    quantity: 4,
+                  },
+                  repulse: {
+                    distance: 200,
+                    duration: 0.4,
+                  },
+                },
+              },
+              particles: {
+                color: {
+                  value: "#ffffff",
+                },
+                links: {
+                  color: "#ffffff",
+                  distance: 150,
+                  enable: true,
+                  opacity: 0.5,
+                  width: 1,
+                },
+                move: {
+                  direction: "none",
+                  enable: true,
+                  outModes: {
+                    default: "bounce",
+                  },
+                  random: false,
+                  speed: 6,
+                  straight: false,
+                },
+                number: {
+                  density: {
+                    enable: true,
+                    area: 800,
+                  },
+                  value: 80,
+                },
+                opacity: {
+                  value: 0.5,
+                },
+                shape: {
+                  type: "circle",
+                },
+                size: {
+                  value: { min: 1, max: 5 },
+                },
+              },
+              detectRetina: true,
+            }}
+          />
+
+          <Box className="effect"></Box>
+
           <Grid
             item
             xs={11}
-            md={6}
-            lg={6}
+            md={7}
+            lg={7}
             className="title"
-
-            sx={{transform : "translateY(-30px)"}}
+            sx={{
+              padding: { xs: "20px", md: "50px" },
+              marginBottom: { md: "50px" },
+            }}
           >
             <h1>{props.data.h1}</h1>
-            <p style={{color:"#ffffffb9"}} className="p-after">{props.data.p}</p>
-            <p style={{color:"#ffffffb9"}}>{props.data.p2}</p>
+            <p style={{ color: "#ffffffb9" }} className="p-after">
+              {props.data.p}
+            </p>
+            <p style={{ color: "#ffffffb9" }}>{props.data.p2}</p>
 
-            <HashLink smooth="true" to={props.data.path}  sx={{textAlign :"center" , display :{xs :"block" , md :"inline-block"} , margin:"auto"}}>
+            <HashLink
+              smooth="true"
+              to={props.data.path}
+              sx={{
+                textAlign: "center",
+                display: { xs: "block", md: "inline-block" },
+                margin: "auto",
+              }}
+            >
               {props.data.link}
-              {/* <ArrowForwardIosIcon /> */}
             </HashLink>
           </Grid>
-          <Grid item xs ={10} md={5} sx={{display :{xs:"none" , md :"flex"} , justifyContent :"flex-end" , alignItems :"center"}}>
-            <CardMedia component="img" image={props.data.img} sx={{width :{md :"400px", lg : "450px"}}} />
-          </Grid>
-
-          <Box className="effect"></Box>
         </Grid>
       </Box>
     </Box>

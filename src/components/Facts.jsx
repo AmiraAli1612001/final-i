@@ -7,8 +7,11 @@ import four from "../images/four.webp";
 import five from "../images/five.webp";
 import six from "../images/six.webp";
 import { Link } from "react-router-dom";
+import { useTranslation } from "react-i18next";
 
 const Facts = () => {
+  const { t } = useTranslation();
+
   function toTops() {
     window.scrollTo({
       top: 0,
@@ -17,20 +20,17 @@ const Facts = () => {
   }
   return (
     <Box className="facts">
-      <Grid container className="container">
-        <Grid item xs={11} lg={4.3}>
-          <h2>Facts</h2>
-          <p>
-            We are a group of technical experts, gathered to provide our
-            services at competitive prices and with higher quality. Where we
-            developed and created many programs that helped their owners to
-            perform their tasks easier, faster and more efficiently. We are
-            working on the latest and most reliable technology to ensure great
-            competition for our customers.
-          </p>
+      <Grid
+        container
+        className="container"
+        sx={{ width: { xs: "95vw", md: "85vw" } }}
+      >
+        <Grid item xs={11} lg={5.5}>
+          <h2>{t("facts-title")}</h2>
+          <p>{t("facts-p")}</p>
           <Box className="images">
             <Box className="imgs">
-              <h2 style={{ marginLeft: "21px" }}>Our Partners</h2>
+              <h2 className="partener">{t("partner")}</h2>
 
               <Box
                 className="box"
@@ -62,7 +62,7 @@ const Facts = () => {
           </Box>
           <Grid item>
             <Link to="/about" className="fact-one" onClick={toTops}>
-              About us
+              {t("about-us")}
             </Link>
           </Grid>
         </Grid>
@@ -77,21 +77,21 @@ const Facts = () => {
           <Box className="row">
             <Box className="circle">
               <h2>24</h2>
-              <p>Projects</p>
+              <p>{t("projects")}</p>
             </Box>
             <Box className="circle">
               <h2>25780800</h2>
-              <p>Programming lines</p>
+              <p>{t("programming-lines")}</p>
             </Box>
           </Box>
           <Box className="row">
             <Box className="circle">
               <h2>298</h2>
-              <p>Happy customers</p>
+              <p>{t("happy-customers")}</p>
             </Box>
             <Box className="circle">
               <h2>15</h2>
-              <p>Years of work</p>
+              <p>{t("years-of-work")}</p>
             </Box>
           </Box>
         </Grid>

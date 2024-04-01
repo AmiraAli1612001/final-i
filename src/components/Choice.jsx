@@ -2,41 +2,45 @@ import { Box, Grid, CardMedia } from "@mui/material";
 import React from "react";
 import robot from "../images/correct.svg";
 
+import { useTranslation } from "react-i18next";
+
 const Choice = () => {
+  const { t } = useTranslation();
+
   let list = [
-    { icon: robot, text: "Safe and error-free apps" },
+    { icon: robot, text: t("choice-li-1") },
     {
       icon: robot,
-      text: "We plan your project before starting to ensure its success",
+      text: t("choice-li-2"),
     },
     {
       icon: robot,
-      text: "Technical support for a period of six months after the delivery of the project",
+      text: t("choice-li-3"),
     },
     {
       icon: robot,
-      text: "All the domains, certificates, and maintenance you need in one place",
+      text: t("choice-li-4"),
     },
     {
       icon: robot,
-      text: "Credibility, seriousness in work, and on time delivery",
+      text: t("choice-li-5"),
     },
     {
       icon: robot,
-      text: "Affordable and competitive prices to the market and with higher quality",
+      text: t("choice-li-6"),
     },
-    { icon: robot, text: "Multiple payment methods for everyone" },
+    { icon: robot, text: t("choice-li-7") },
   ];
   return (
-    <Box className="choice" sx={{padding :{xs :"30px 10px" , md :"180px 30px"}}}>
-      <Grid container className="container">
-        <Grid item xs={10} lg={4.5}>
-          <h2>Why GRE is our best choice?</h2>
-          <p>
-            Our primary goal is the interest of our customers, so we continue to
-            make every effort to provide many offers that distinguish us from
-            others, which include:
-          </p>
+    <Box className="choice" sx={{ padding: { xs: "50px 10px" } }}>
+      <Grid
+        container
+        className="container"
+        sx={{ width: { xs: "95vw", md: "85vw" }, margin: "auto" }}
+      >
+        <Grid item xs={10} lg={6}>
+          <h2>{t("choice-title")}</h2>
+          <p>{t("choice-p")}</p>
           <ul>
             {list.map((item) => {
               return (
@@ -48,17 +52,27 @@ const Choice = () => {
             })}
           </ul>
         </Grid>
-        <Grid item xs={11} lg={4} sx={{backgroundColor :"blue",justifyContent:"center",alignItems :"center", display :"flex" ,margin :{xs :"50px auto" , md :"0px auto"}}}>
-          <div class="icon" style={{display : {xs :"none" , md :"flex"}}}>
+        <Grid
+          item
+          xs={11}
+          lg={4}
+          sx={{
+            backgroundColor: "blue",
+            justifyContent: "center",
+            alignItems: "center",
+            display: "flex",
+            margin: { xs: "50px auto", md: "0px auto" },
+          }}
+        >
+          <div class="icon" style={{ display: { xs: "none", md: "flex" } }}>
             <svg
               maxWidth="369"
               height="455"
               viewBox="0 0 369 455"
               fill="none"
-              
               xmlns="http://www.w3.org/2000/svg"
             >
-              <g id="GRE Robot S2" clip-path="url(#clip0S2)">
+              <g id="Correct Robot S2" clip-path="url(#clip0S2)">
                 <g id="RobotS2">
                   <g id="Ellipse 19" filter="url(#filter0_dS2)">
                     <ellipse
@@ -882,7 +896,7 @@ const Choice = () => {
                       ></circle>
                     </g>
                   </g>
-                  <g id="GRE Logo" clip-path="url(#clip1)">
+                  <g id="Correct Logo" clip-path="url(#clip1)">
                     <path
                       id="Vector"
                       d="M244.057 287.054C261.012 287.054 274.756 273.31 274.756 256.356C274.756 239.401 261.012 225.657 244.057 225.657C227.103 225.657 213.358 239.401 213.358 256.356C213.358 273.31 227.103 287.054 244.057 287.054Z"
@@ -931,7 +945,7 @@ const Choice = () => {
                         ></path>
                       </g>
                     </g>
-                    <g id="Real GRE Logo">
+                    <g id="Real Correct Logo">
                       <path
                         id="Vector_7"
                         d="M263.155 255.159C263.155 255.367 263.139 257.301 263.139 257.301C262.833 264.456 257.134 270.216 250.002 270.621C249.47 270.62 248.939 270.621 248.408 270.621C247.553 270.622 246.699 270.625 245.844 270.625C242.764 270.625 239.684 270.634 236.604 270.612C236.304 270.61 235.928 270.506 235.721 270.308C235.216 269.826 235.24 269.164 235.418 268.552C235.584 267.979 235.992 267.568 236.619 267.508C237.224 267.45 237.835 267.454 238.443 267.436C239.047 267.418 239.649 267.411 240.253 267.398C240.897 267.384 241.541 267.362 242.183 267.31C242.855 267.257 243.246 266.721 243.308 266.058C243.371 265.38 243.06 264.762 242.464 264.528C242.124 264.394 241.742 264.306 241.379 264.303C240.086 264.294 238.79 264.291 237.496 264.291C236.258 264.291 235.019 264.292 233.781 264.291C232.812 264.29 231.842 264.303 230.873 264.271C229.645 264.227 229.007 263.174 229.512 262.058C229.778 261.472 230.3 261.262 230.885 261.243C231.963 261.207 233.042 261.218 234.121 261.215C234.745 261.213 235.369 261.211 235.993 261.21C237.573 261.207 239.154 261.205 240.733 261.196C241.658 261.19 242.305 260.572 242.336 259.702C242.367 258.819 241.832 258.244 240.873 258.147C240.562 258.116 240.249 258.106 239.936 258.106C238.397 258.109 236.858 258.118 235.318 258.122C235.03 258.123 234.742 258.124 234.454 258.125C232.126 258.132 229.799 258.13 227.472 258.143C226.483 258.148 225.627 257.964 225.319 256.85V256.381C225.442 256.098 225.52 255.782 225.699 255.541C226.045 255.075 226.591 254.984 227.128 254.966C228.205 254.931 229.283 254.92 230.361 254.916C232.028 254.91 233.694 254.906 235.36 254.908C235.708 254.909 236.055 254.91 236.403 254.911C238.574 254.917 240.745 254.931 242.917 254.955C243.593 254.961 243.871 255.261 243.827 255.971C243.728 257.535 243.939 259.03 244.762 260.39C246.792 263.738 251.506 265.157 254.846 262.6C255.191 262.337 255.491 262.011 255.789 261.693C255.894 261.581 255.994 261.331 255.994 261.154C255.839 261.154 255.706 261.161 255.562 261.161C254.609 261.158 253.655 261.173 252.702 261.172C251.929 261.172 251.717 260.968 251.713 260.204C251.707 258.688 251.709 257.173 251.716 255.656C251.72 254.957 251.897 254.791 252.685 254.79C254.92 254.79 257.155 254.805 259.39 254.807C260.601 254.808 261.407 254.784 262.78 254.784C263.03 254.784 263.155 254.951 263.155 255.159Z"

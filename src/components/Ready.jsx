@@ -1,24 +1,28 @@
-import { Box } from '@mui/material';
-import React from 'react';
-import { Link } from 'react-router-dom';
-import ArrowForwardIosIcon from "@mui/icons-material/ArrowForwardIos";
+import { Box } from "@mui/material";
+import React from "react";
+import { Link } from "react-router-dom";
+import { useTranslation } from "react-i18next";
 
 const Ready = () => {
+  const { t } = useTranslation();
+
   function toTops() {
     window.scrollTo({
       top: 0,
       behavior: "smooth",
     });
   }
-    return (
-       <Box className="ready">
-           <Box className="container">
-             <h2>Are you ready to implement your project</h2>
-             <p>New ideas need to be implemented quickly as our entrepreneurs race to invest every creative idea and turn it into a successful project. GRE has the experience and creativity to implement the ideas of its customers to enter the competition with the best successful projects.</p>
-             <Link to="/contact" onClick={toTops}>Contact us </Link>
-           </Box>
-       </Box>
-    );
-}
+  return (
+    <Box className="ready">
+      <Box className="container">
+        <h2>{t("ready-title")}</h2>
+        <p>{t("ready-p")} </p>
+        <Link to="/contact" onClick={toTops}>
+          {t("contact-us")}
+        </Link>
+      </Box>
+    </Box>
+  );
+};
 
 export default Ready;

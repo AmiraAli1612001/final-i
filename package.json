@@ -1,6 +1,6 @@
 {
   "name": "third-project",
-  "homepage": "https://AmiraAli1612001.github.io/five",
+  "homepage": "https://AmiraAli1612001.github.io/final-it",
   "version": "0.1.0",
   "private": true,
   "dependencies": {
@@ -13,14 +13,22 @@
     "@testing-library/jest-dom": "^5.17.0",
     "@testing-library/react": "^13.4.0",
     "@testing-library/user-event": "^13.5.0",
+    "i18next": "^23.10.1",
+    "jquery": "^3.7.1",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
+    "react-i18next": "^14.1.0",
+    "react-jquery-plugin": "^1.1.7",
     "react-multi-carousel": "^2.8.4",
+    "react-particles": "^2.12.2",
     "react-router-dom": "^6.22.3",
     "react-router-hash-link": "^2.4.3",
     "react-scripts": "5.0.1",
     "react-swipeable-views-react-18-fix": "^0.14.1",
+    "react-tsparticles": "^2.12.2",
     "styled-components": "^6.1.8",
+    "tsparticles": "^3.3.0",
+    "tsparticles-slim": "^2.12.0",
     "web-vitals": "^2.1.4"
   },
   "scripts": {
@@ -50,6 +58,7 @@
     ]
   },
   "devDependencies": {
+    "@types/jquery": "^3.5.29",
     "gh-pages": "^6.1.1"
   }
 }

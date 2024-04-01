@@ -1,13 +1,16 @@
 import { Box, Grid } from "@mui/material";
 import React from "react";
+import { useTranslation } from "react-i18next";
 
 const Modern = () => {
+  const { t } = useTranslation();
+
   return (
-    <Box className="modern"  id="modern" sx={{zIndex:"1"}}>
+    <Box className="modern" id="modern" sx={{ zIndex: "2" }}>
       <Box className="modern-container">
-        <Box className="box" >
+        <Box className="box">
           <Grid container className="container">
-            <Grid item xs={10} md={3.5} >
+            <Grid item xs={10} lg={3.5}>
               <svg
                 id="a2d2084d-cc5f-432b-8463-023a9288d7f4"
                 data-name="Layer 1"
@@ -1176,42 +1179,29 @@ const Modern = () => {
                 />
               </svg>
             </Grid>
-            <Grid item xs={10} md={4}>
-              <h2>Modern designs</h2>
-              <p className="one" >
-                The design of the website or application affects the impression
-                that website visitors make, as we take this aspect into account
-                through:
-              </p>
+            <Grid item xs={10} lg={4}>
+              <h2>{t("section-1-title")}</h2>
+              <p className="one">{t("section-1-p")}</p>
               <ul>
-                <li >
-                  Generating suitable ideas for your site to be designed in
-                  accordance of its idea
-                </li>
-                <li >
-                  Using of the latest and most powerful tools and techniques to
-                  create the design
-                </li>
-                <li >
-                  Monitor the latest design trends and apply them to our client
-                  sites
-                </li>
+                <li>{t("section-1-li-1")}</li>
+                <li>{t("section-1-li-2")}</li>
+                <li>{t("section-1-li-3")}</li>
               </ul>
             </Grid>
           </Grid>
         </Box>
         <Box className="box">
           <Grid container className="container">
-            <Grid item xs={10} md={4}>
-              <h2>Smooth designs</h2>
-              <p>All the apps that we create have the following features:</p>
+            <Grid item xs={10} lg={4}>
+              <h2> {t("section-2-title")}</h2>
+              <p> {t("section-2-p")}</p>
               <ul>
-                <li>Ease of use and super speed</li>
-                <li>Error-free, customizable and scalable</li>
-                <li>Responsive design on all smart phone devices</li>
+                <li> {t("section-2-li-1")}</li>
+                <li>{t("section-2-li-2")}</li>
+                <li> {t("section-2-li-3")}</li>
               </ul>
             </Grid>
-            <Grid item xs={10} md={4}>
+            <Grid item xs={10} lg={4}>
               <svg
                 id="0315a8ac-3017-4957-93c4-92e478eebb20"
                 data-name="Layer 1"
@@ -1580,7 +1570,7 @@ const Modern = () => {
         </Box>
         <Box className="box">
           <Grid container className="container">
-            <Grid item xs={10} md={4}>
+            <Grid item xs={10} lg={4}>
               <svg
                 xmlns="http://www.w3.org/2000/svg"
                 width="874.576"
@@ -1977,20 +1967,13 @@ const Modern = () => {
                 </g>
               </svg>
             </Grid>
-            <Grid item xs={10} md={4}>
-              <h2>Maximum levels of protection</h2>
-              <p>
-                The interest of our customers is our first goal, as all projects
-                that are requested from us take into account the following
-                aspects:
-              </p>
+            <Grid item xs={10} lg={4}>
+              <h2> {t("section-3-title")}</h2>
+              <p>{t("section-3-p")}</p>
               <ul>
-                <li>The project is free of security vulnerabilities or bugs</li>
-                <li>The inability of visitors to harm the project</li>
-                <li>
-                  Advice and educational discussions to the customer regarding
-                  the protection of his/her application
-                </li>
+                <li> {t("section-3-li-1")}</li>
+                <li> {t("section-3-li-2")}</li>
+                <li>{t("section-3-li-3")}</li>
               </ul>
             </Grid>
           </Grid>

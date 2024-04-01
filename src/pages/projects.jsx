@@ -11,53 +11,76 @@ import cy2 from "../images/cy2.png";
 import et from "../images/et.png";
 import web from "../images/web.webp";
 import web2 from "../images/web2.webp";
+import { useTranslation } from "react-i18next";
 
 const Projects = () => {
+  const { t } = useTranslation();
+
   let projects = [
-    { img: cy, title: "cyber security website", type: "website" },
-    { img: cy2, title: "cyber security website", type: "website" },
-    { img: et, title: "Etisalate website", type: "website" },
-    { img: web, title: "Frank And OaK", type: "website" },
-    { img: web2, title: "Dropbox website", type: "website" },
+    { img: cy, title: t("cyber-security-website"), type: t("website") },
+    { img: cy2, title: t("cyber-security-website"), type: t("website") },
+    { img: et, title: t("Etisalate-website"), type: t("website") },
+    { img: web, title: t("Frank-And-OaK"), type: t("website") },
+    { img: web2, title: t("Dropbox-website"), type: t("website") },
   ];
   let data = {
-    h1: "Our projects",
-    p: "Here is a small part of our business in which we satisfied our customers and provided them with the best service,",
-    p2 :"We're always publishing our latest projects on an ongoing basis in order to inform our customers of the achievements that we are achieving.",
-    link: "contact us",
+    h1: t("our-projects"),
+    p: t("projects-p-1"),
+    p2: t("projects-p-2"),
+    link: t("contact-us"),
     img: mobile,
-    path :"/contact"
-
+    path: "/contact",
   };
   return (
-    <Box>
-        <Box className=" projects">
-          <Top data={data} />
-          <Box  sx={{marginTop :"250px"}} className="container" >
-            <Grid container className="row-project" sx={{display :"flex" , gap :"50px", flexWrap :"wrap" , justifyContent:"center" , alignItems :"center"}} >
-        <Box  >
-              <h2 className="our">Our Projects</h2>
+    <Box className=" projects">
+      <title>projects</title>
+      <Top data={data} />
+      <Grid
+        container
+        className="row-project"
+        sx={{
+          display: "flex",
+          gap: "50px",
+          flexWrap: "wrap",
+          justifyContent: "center",
+          alignItems: "center",
+        }}
+      >
+        <Box>
+          <h2 className="our">{t("our-projects")}</h2>
         </Box>
-        <Grid container className="row-project" sx={{display :"flex" , gap :"50px", flexWrap :"wrap" , justifyContent:"center" , alignItems :"center"}} >
-              {projects.map((item) => {
-                return (
-                    <Grid item className="item" xs={10} sm={6} md={3} >
-                        <CardMedia sx={{width :"100%", height :"250px"}} component="img" image={item.img} />
-                        <Box className="layer">
-                            <p>{item.title}</p>
-                            <p>{item.type}</p>
-                        </Box>
-                    </Grid>
-                );
-              })}
+        <Grid
+          container
+          className="row-project"
+          sx={{
+            display: "flex",
+            gap: "30px",
+            flexWrap: "wrap",
+            justifyContent: "center",
+            alignItems: "center",
+          }}
+        >
+          {projects.map((item) => {
+            return (
+              <Grid item className="item" xs={10} md={3}>
+                <CardMedia
+                  sx={{ width: "100%", height: "250px" }}
+                  component="img"
+                  image={item.img}
+                />
+                <Box className="layer">
+                  <p>{item.title}</p>
+                  <p>{item.type}</p>
+                </Box>
               </Grid>
-            </Grid>
-          </Box>
-          <Choice />
-          <Facts />
-          <Owl />
-          <Ready />
-        </Box>
+            );
+          })}
+        </Grid>
+      </Grid>
+      <Choice />
+      <Facts />
+      <Owl />
+      <Ready />
     </Box>
   );
 };

@@ -1,8 +1,11 @@
 import { Box, Grid } from "@mui/material";
 import React from "react";
 import { Link } from "react-router-dom";
+import { useTranslation } from "react-i18next";
 
 const Services = () => {
+  const { t, i18n } = useTranslation();
+
   function toTops() {
     window.scrollTo({
       top: 0,
@@ -230,8 +233,8 @@ const Services = () => {
           </g>
         </svg>
       ),
-      title: "Programming and web development",
-      p: "GRE Programming & Development is one of the leading companies in the field of software and web design services for companies, institutions and individuals.",
+      title: t("box-1-title"),
+      p: t("box-1-p"),
     },
     {
       icon: (
@@ -331,8 +334,8 @@ const Services = () => {
           ></path>
         </svg>
       ),
-      title: "Mobile Apps Development",
-      p: "GRE offers design and programming of smart phone applications with high efficiency on all known systems such as Android, IOS and Windows Phone.",
+      title: t("box-2-title"),
+      p: t("box-2-p"),
     },
     {
       icon: (
@@ -414,8 +417,8 @@ const Services = () => {
           <g></g>
         </svg>
       ),
-      title: "Secure Websites & Servers",
-      p: "We also provide the protection of sites, servers, mobile apps and systems services, which includes the scanning and patching of security vulnerabilities that cause distortion of the project, our first goal is to provide maximum protection for our customers.",
+      title: t("box-3-title"),
+      p: t("box-3-p"),
     },
     {
       icon: (
@@ -515,8 +518,8 @@ const Services = () => {
           </g>
         </svg>
       ),
-      title: "Repairing Services",
-      p: "GRE for programming and development provides services for the maintenance of sites, servers, applications and systems of all kinds, where this service includes the repair of errors and problems and increase the efficiency of the project from several aspects.",
+      title: t("box-4-title"),
+      p: t("box-4-p"),
     },
     {
       icon: (
@@ -596,8 +599,8 @@ const Services = () => {
           </g>
         </svg>
       ),
-      title: "Domains",
-      p: "The ability to reserve domains from your account on the site and take advantage of the monthly offers we offer in this field. Whereas after your purchase you will have complete control over your domain.",
+      title: t("box-5-title"),
+      p: t("box-5-p"),
     },
     {
       icon: (
@@ -633,8 +636,8 @@ const Services = () => {
           ></path>
         </svg>
       ),
-      title: "SSL Certificates",
-      p: "We provide SSL certificates that are recognized by all browsers and trusted, which helps you to boost the confidence of your customers and your site visitors. With exclusive offers for our customers, we make them monthly.",
+      title: t("box-6-title"),
+      p: t("box-6-p"),
     },
     {
       icon: (
@@ -734,8 +737,8 @@ const Services = () => {
           <g></g>
         </svg>
       ),
-      title: "IP Geolocation",
-      p: "We also have IP Geolocation service, through which you can learn more details about your website visitors such as country, region, city, currency, language and many more details.",
+      title: t("box-7-title"),
+      p: t("box-7-p"),
     },
     {
       icon: (
@@ -795,14 +798,21 @@ const Services = () => {
           <circle cx="168.182" cy="94.5424" r="9.49863" fill="#363749"></circle>
         </svg>
       ),
-      title: "Telegram Bots",
-      p: "We also offer a professional and high quality Telegram Bots programming service. Examples include: Auto responding to customers, answering your FAQs, sending notifications, and many more.",
+      title: t("box-8-title"),
+      p: t("box-8-p"),
     },
   ];
   return (
     <Box className="sevices">
-      <h2 style={{ width :"77vw", textAlign :{xs :"center",md:"start"},margin:"auto", textAlign: { xs: "center" } }}>
-        Our Services
+      <h2
+        style={{
+          width: "77vw",
+          textAlign: { xs: "center", md: "start" },
+          margin: "auto",
+          textAlign: { xs: "center" },
+        }}
+      >
+        {t("our-services")}
       </h2>
 
       <Grid container className="services-container">
@@ -813,9 +823,13 @@ const Services = () => {
               <Box className="title">{item.title}</Box>
               <Box className="p">{item.p}</Box>
               {index === 2 || index === 3 ? (
-                <Link to="/contact" onClick={toTops}>Contact us </Link>
+                <Link to="/contact" onClick={toTops}>
+                  {t("contact-us")}
+                </Link>
               ) : (
-                <Link to="/App-developments" onClick={toTops}>Read More </Link>
+                <Link to="/App-developments" onClick={toTops}>
+                  {t("read-more")}{" "}
+                </Link>
               )}
             </Grid>
           );
